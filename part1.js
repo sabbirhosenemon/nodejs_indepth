@@ -45,37 +45,54 @@ won't help us with these tasks over other languages.
 
 // Observer design pattern: The subject is being observed. Observers subscribe to the subject and get notified when an event occurs by the subject which is being observed.
 
-// Node event emitter
-const EventEmitter = require('events'); // using commonJS module system
-// import EventEmitter from 'events'; // using ES6 module system
-const celebrity = new EventEmitter();
+// // Node event emitter ===========
+// // we can use any module (our or 3rd party) using require('module name') and assign it to any variable to use the functionality of that module.
+// const EventEmitter = require('events'); // using commonJS module system
+// // import EventEmitter from 'events'; // using ES6 module system
+// const celebrity = new EventEmitter();
 
-// subscribe to the celebrity for the race event true for win
-celebrity.on('race', (data) => {
-    if(data === 'win'){
-        console.log('Party time! we winnn');
-    }
-});
+// // subscribe to the celebrity for the race event true for win
+// celebrity.on('race', (data) => {
+//     if(data === 'win'){
+//         console.log('Party time! we winnn');
+//     }
+// });
 
-// subscribe to the celebrity for the race event true for lost
-celebrity.on('race', (data) => {
-    if(data === 'lost'){
-        console.log('Sadddd! we are lost :(');
-    }
-});
+// // subscribe to the celebrity for the race event true for lost
+// celebrity.on('race', (data) => {
+//     if(data === 'lost'){
+//         console.log('Sadddd! we are lost :(');
+//     }
+// });
 
-// subscribe to the celebrity for the party event true for fun
-celebrity.on('party', (data) => {
-    if(data === 'fun'){
-        console.log('Its party time. lets fun...');
-    }
-});
+// // subscribe to the celebrity for the party event true for fun
+// celebrity.on('party', (data) => {
+//     if(data === 'fun'){
+//         console.log('Its party time. lets fun...');
+//     }
+// });
 
-// exit event after running the program with code
-process.on('exit', (code) => console.log('Exit with code: ', code))
+// // exit event after running the program with code
+// process.on('exit', (code) => console.log('Exit with code: ', code))
 
-// when the event is emitted, the dedicated event listener will be called.
-celebrity.emit('race', 'win');
-celebrity.emit('race', 'win');
-celebrity.emit('race', 'lost');
-celebrity.emit('party', 'fun');
+// // when the event is emitted, the dedicated event listener will be called.
+// celebrity.emit('race', 'win');
+// celebrity.emit('race', 'win');
+// celebrity.emit('race', 'lost');
+// celebrity.emit('party', 'fun');
+
+// node http module
+const https =  require('https')
+const { request, get } = require('https') // we can use this way also
+
+// const req = https.request('https://www.google.com', response => {
+//     response.on('data', data => console.log(data))
+//     response.on('end', () => console.log('No more data'))
+// })
+
+// req.end()
+
+get('https://www.google.com', response => {
+    response.on('data', data => console.log(data))
+    response.on('end', () => console.log('No more data'))
+})
