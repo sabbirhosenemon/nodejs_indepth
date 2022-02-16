@@ -1,0 +1,23 @@
+{
+  "name": "nodejs_indepth",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000n\u0000o\u0000d\u0000e\u0000j\u0000s\u0000_\u0000i\u0000n\u0000d\u0000e\u0000p\u0000t\u0000h\u0000\r\u0000 \u0000",
+  "main": "part1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sabbirhosenemon/nodejs_indepth.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sabbirhosenemon/nodejs_indepth/issues"
+  },
+  "homepage": "https://github.com/sabbirhosenemon/nodejs_indepth#readme",
+  "dependencies": {
+    "axios": "^0.26.0"
+  }
+}

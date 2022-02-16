@@ -109,3 +109,65 @@ won't help us with these tasks over other languages.
 // to use ES6 modules without using package.json we have to use .mjs file extension and import the file path with .mjs extension.
 // node modules only load at once. it cashes the module at the time of first loading. the cache is global and it lives in require.cache object
 // index.js in modules: https://nodejs.org/api/modules.html#modules_all_together
+
+// // HTTP request using axios
+// const axios = require("axios");
+
+// // method 1 - promise chain
+// // axios.get("https://jsonplaceholder.typicode.com/users")
+// //     .then((response) => {
+// //         console.log(response);
+// //     })
+// //     .catch((error) => {
+// //         console.log(error);
+// //     })
+// //     .then(() => console.log('DONEEEEEEEEEEEEEEEE'));
+
+// // method 2 - async await
+// async function getUsers() {
+//     try {
+//         const response = await axios.get("https://jsonplaceholder.typicode.com/users");
+//         console.log(response);
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
+
+// getUsers();
+
+/*
+SEMANTIC VERSIONING: https://semver.org/
+Given a version number MAJOR.MINOR.PATCH, increment the:
+MAJOR version when you make incompatible API changes,
+MINOR version when you add functionality in a backwards compatible manner, and
+PATCH version when you make backwards compatible bug fixes.
+
+https://semver.npmjs.com/
+> for 0.4.6 here minor version will count as major version as the major is 0
+
+### version searching way:
+1.x
+^1.4.8
+~1.1.4
+*/
+
+/*
+PACKAGE VERSIONING:
+package-lock.json: we should share the package-lock.json file with our source code. 
+otherwise, there may occur conflict for packages' exact version. this can lead us bugs on other machines.
+
+VULNERABLE DEPENDENCIES:
+Npm audit: if there is a vulnerability in any of our packages we can find them by running npm audit command. 
+vulnerable will only show if the issues were reported.
+
+npm audit fix command will update our vulnerable package to the latest patch update. 
+it will only update if there is any update available on npm registry.
+*/
+
+/*
+LOCAL OR GLOBAL PACKAGE INSTALLATION:
+we can install any dependencies globally using npm install -g <dependency name> . It will then not install on our local project folder. 
+We can uninstall it also using npm uninstall -g <dependency name> command.
+But this way the global dependency will not be added to the package.json file. So this is not a suggested method. 
+we should make package.json self-contained about all the dependencies our project is being used.
+*/
