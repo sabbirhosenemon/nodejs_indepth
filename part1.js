@@ -81,9 +81,9 @@ won't help us with these tasks over other languages.
 // celebrity.emit('race', 'lost');
 // celebrity.emit('party', 'fun');
 
-// node http module
-const https =  require('https')
-const { request, get } = require('https') // we can use this way also
+// // node http module
+// const https =  require('https')
+// const { request, get } = require('https') // we can use this way also
 
 // const req = https.request('https://www.google.com', response => {
 //     response.on('data', data => console.log(data))
@@ -92,7 +92,20 @@ const { request, get } = require('https') // we can use this way also
 
 // req.end()
 
-get('https://www.google.com', response => {
-    response.on('data', data => console.log(data))
-    response.on('end', () => console.log('No more data'))
-})
+// get('https://www.google.com', response => {
+//     response.on('data', data => console.log(data))
+//     response.on('end', () => console.log('No more data'))
+// })
+
+// // we can export a module in these ways
+// module.exports = {
+//     data1: data1,
+//     data2: data2
+// }
+// //  or
+// exports.name = function(){}
+// // we can also use ES6 modules also which is just import and export
+
+// to use ES6 modules without using package.json we have to use .mjs file extension and import the file path with .mjs extension.
+// node modules only load at once. it cashes the module at the time of first loading. the cache is global and it lives in require.cache object
+// index.js in modules: https://nodejs.org/api/modules.html#modules_all_together
