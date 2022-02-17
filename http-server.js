@@ -19,15 +19,18 @@ const person = [
 ];
 
 // event emitter is used to listen to events
-server.on("request", (req, res) => { // request emitter callback function takes two arguments req and res
+server.on("request", (req, res) => {
+  // request emitter callback function takes two arguments req and res
   const url = req.url.split("/"); // split url into array like ['', 'person', '1']
   console.log(url);
   if (req.method === "POST" && url[1] === "person") {
-    req.on("data", (data) => { // data emitter callback function takes one argument data
+    req.on("data", (data) => {
+      // data emitter callback function takes one argument data
       const per = data.toString(); // convert buffer data to string
       person.push(JSON.parse(per)); // convert string to json
       console.log(per);
     });
+    req.pipe(res);
   } else if (req.method === "GET" && req.url === "/") {
     res.writeHead(200, { "Content-Type": "application/json" });
     res.end(JSON.stringify({ message: "Welcome home" })); // end the stream and send response
@@ -52,11 +55,15 @@ server.on("request", (req, res) => { // request emitter callback function takes 
 
 server.listen(3000, () => console.log("Server running on port 3000"));
 
-// POST DATA
-// fetch('http://localhost:3000/person', {
-//   method: 'POST',
+// POST DATA and get back the response
+// fetch("http://localhost:3000/person", {
+//   method: "POST",
 //   body: JSON.stringify({
 //     id: 2,
-//     name: 'Sinha'
-//   })
+//     name: "Sinha",
+//   }),
 // })
+//   .then((response) => response.json())
+//   .then((data) => console.log(data));
+
+// request is readable stream and response is writable stream for server. we send data to server using request stream and server sends data to response stream.
