@@ -19,6 +19,7 @@
   "homepage": "https://github.com/sabbirhosenemon/nodejs_indepth#readme",
   "dependencies": {
     "axios": "^0.26.0",
-    "csv-parse": "^5.0.4"
+    "csv-parse": "^5.0.4",
+    "express": "^4.17.3"
   }
 }
