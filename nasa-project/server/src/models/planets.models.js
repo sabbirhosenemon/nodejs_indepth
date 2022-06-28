@@ -1,3 +1,4 @@
+// model handles the data for the planets from a file or database
 const { parse } = require("csv-parse");
 const fs = require("fs");
 
