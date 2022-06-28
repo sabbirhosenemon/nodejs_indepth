@@ -10,20 +10,22 @@ function delay(duration) {
 }
 
 app.get("/", (req, res) => {
-  res.send(`Hello World!: ${process.pid}`);
+  res.send(`/ - This request is running on process id: ${process.pid}`);
 });
 
 app.get("/timer", (req, res) => {
   delay(5000);
-  res.send(`Took too long!: ${process.pid}`);
+  res.send(`/timer - This request is running on process id: ${process.pid}`);
 });
 
-console.log("Starting server...");
+console.log(`Starting server... pid: ${process.pid}`);
 if (cluster.isMaster) {
   console.log(`Master is running on pid: ${process.pid}`);
-  cluster.fork();
-  cluster.fork();
+  const numWorkers = require("os").cpus().length;
+  for (let i = 0; i < numWorkers; i++) {
+    cluster.fork();
+  }
 } else {
-  console.log(`app listening on port 3000 and pid: ${process.pid}`);
+  console.log(`Worker server running on port 3000 and pid: ${process.pid}`);
   app.listen(3000);
 }

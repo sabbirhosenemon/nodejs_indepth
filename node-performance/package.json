@@ -1,19 +1,16 @@
 {
   "name": "performance",
   "version": "1.0.0",
-  "description": "",
+  "description": "Learning about nodejs performance using clustering  node processes",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "devStart": "nodemon server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.1"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.18"
+    "express": "^4.18.1",
+    "pm2": "^5.2.0"
   }
 }
